@@ -1,3 +1,25 @@
+
+let dateEl = document.getElementById('current-date')
+let today = new Date();
+let formatedDate = today.toLocaleDateString('en-Us', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+})
+dateEl.innerText = formatedDate;
+
+const colors = ['#FADADD', '#A7C7E7', '#C5A3D6', '#B7E4C7', '#F9E79F', '#FFDAB9', '#98FF98', '#E6A8D7', '#FFB6B9', '#A0D6D1'];
+const image = document.getElementById('theme-img');
+let currentColor = 0;
+image.addEventListener('click', function () {
+    document.body.style.backgroundColor = colors[currentColor];
+
+    currentColor = (currentColor + 1) % colors.length;
+})
+
+
+
 let buttons = document.getElementsByClassName('complete-btn');
 for (let button of buttons) {
     button.addEventListener('click', function () {
@@ -39,7 +61,7 @@ for (let button of buttons) {
         msg.style.padding = '8px';
         msg.style.backgroundColor = '#e2e8f0';
         msg.style.borderRadius = '13px';
-        msg.innerText = `You have completed the "${title}" at "${currentTime}"`;
+        msg.innerText = `You have completed the ${title} at ${currentTime}`;
         log.appendChild(msg);
 
         document.getElementById('history')
@@ -48,9 +70,15 @@ for (let button of buttons) {
             })
     })
 
-
-
 }
+
+document.getElementById('discover')
+    .addEventListener('click', function () {
+        window.location.href = './blog.html'
+    })
+
+
+
 
 
 
