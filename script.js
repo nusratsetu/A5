@@ -26,6 +26,39 @@ for (let button of buttons) {
     }
 }
 
+let button3 = document.querySelectorAll('.complete-btn');
+for (let button of buttons) {
+    button.addEventListener('click', function () {
+        let log = document.getElementById('activity-sec');
+        let card = this.closest('.one');
+        let title = card.querySelector('h1').innerText;
+        let currentTime = new
+            Date().toLocaleTimeString();
+        let msg = document.createElement('p');
+        msg.style.color = '#4a5568';
+        msg.style.padding = '8px';
+        msg.style.backgroundColor = '#e2e8f0';
+        msg.style.borderRadius = '13px';
+        msg.innerText = `You have completed the "${title}" at "${currentTime}"`;
+        log.appendChild(msg);
+
+        document.getElementById('history')
+            .addEventListener('click', function () {
+                msg.style.display = 'none';
+            })
+    })
+
+
+
+}
+
+
+
+
+
+
+
+
 
 
 
